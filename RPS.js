@@ -24,5 +24,22 @@ function playround(computerselection,playerselection){
         return "Computer selected Scissors, It's a tie :/ ";
 }
 
-
+function game(){
+    let playerresult=0, computerresult=0;
+    for(let i=0;i<5;i++){
+        let playerselection=prompt("Select rock paper or scissors");
+        let computerselection=computerPlay();
+        let result=playround(computerselection, playerselection.toLowerCase());
+        console.log(result);
+        if(result.includes("you lose"))
+            computerresult+=1;
+        else    
+            playerresult+=1;
+    }
+    if(computerresult>playerresult)
+        console.log("Try again!! Computer won and You lost");
+    else
+        console.log("YAYYYY!! Computer Lost and You Won :)");
+}
  
+game()
