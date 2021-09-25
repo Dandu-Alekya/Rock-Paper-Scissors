@@ -43,3 +43,20 @@ function game(){
 }
  
 game()
+
+const buttons = document.querySelectorAll(".button");
+//const rock = document.querySelector('#rock');
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        console.log("rock");
+        game("rock");
+     });
+});
+/*const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    let x= button.id;
+    game(x);
+  });
+});
+*/
