@@ -1,62 +1,87 @@
+let computerresult=0;
+let playerresult=0;
+let computerselection;
+
+const final = document.querySelector('#final');
+
 function computerPlay(){
-    const result=["Rock", "Paper", "Scissors"];
+    const result=["Rock", "Paper", "Scissors","Lizard","Spock"];
     return result[Math.floor(Math.random()*result.length)];
 }
 
 function playround(computerselection,playerselection){
-    if(computerselection==="Rock" && playerselection==="scissors")
-        return "Computer selected Rock, you lose :( ";
-    else if(computerselection==="Rock" && playerselection==="paper")
-        return "Computer selected Rock, you win :) ";
-    else if(computerselection==="Rock" && playerselection==="rock")
-        return "Computer selected Rock, It's a tie :/ ";
-    else if(computerselection==="Paper" && playerselection==="scissors")
-        return "Computer selected Paper, you win :) ";
-    else if(computerselection==="Paper" && playerselection==="rock")
-        return "Computer selected Paper, you lose :( ";
-    else if(computerselection==="Paper" && playerselection==="paper")
-        return "Computer selected Paper, It's a tie :/ ";
-    else if(computerselection==="Scissors" && playerselection==="paper")
-        return "Computer selected Scissor, you lose :( ";
-    else if(computerselection==="Scissors" && playerselection==="rock")
-        return "Computer selected Scissors, you win :)";
+    if(computerselection==="Rock" && playerselection==="scissors" || 
+        computerselection==="Paper" && playerselection==="rock" ||
+        computerselection==="Scissors" && playerselection==="paper"||
+        computerselection==="Rock" && playerselection==="lizard" ||
+        computerselection==="Lizard" && playerselection==="spock" ||
+        computerselection==="Spock" && playerselection==="scissors" ||
+        computerselection==="Scissors" && playerselection==="lizard" ||
+        computerselection==="Lizard" && playerselection==="paper" ||
+        computerselection==="Paper" && playerselection==="spock" ||
+        computerselection==="Spock" && playerselection==="rock" ||
+        computerselection==="Rock" && playerselection==="scissors"
+    )
+        return "You Lose"
+    else if(
+        playerselection==="rock" && computerselection==="Scissors" || 
+        playerselection==="paper" && computerselection==="Rock" ||
+        playerselection==="scissors" && computerselection==="Paper"||
+        playerselection==="rock" && computerselection==="Lizard" ||
+        playerselection==="lizard" && computerselection==="Spock" ||
+        playerselection==="spock" && computerselection==="Scissors" ||
+        playerselection==="scissors" && computerselection==="Lizard" ||
+        playerselection==="lizard" && computerselection==="Paper" ||
+        playerselection==="paper" && computerselection==="Spock" ||
+        playerselection==="spock" && computerselection==="Rock" ||
+        playerselection==="rock" && computerselection==="Scissors"
+    )
+        return "You Win"
     else
-        return "Computer selected Scissors, It's a tie :/ ";
+        return "Tie"
+        
 }
 
-function game(){
-    let playerresult=0, computerresult=0;
-    for(let i=0;i<5;i++){
-        let playerselection=prompt("Select rock paper or scissors");
-        let computerselection=computerPlay();
-        let result=playround(computerselection, playerselection.toLowerCase());
-        console.log(result);
-        if(result.includes("you lose"))
-            computerresult+=1;
-        else    
-            playerresult+=1;
+const playerpoints = document.querySelector("#playerpoint");
+const comppoints = document.querySelector("#comppoint");
+const current = document.querySelector("#current");
+function game(playerselection){
+    while(computerresult<=5 && playerresult<=5){
+    computerselection=computerPlay();
+    const result=playround(computerselection, playerselection);
+    if(result === "You Lose"){
+        current.textContent= "Uhoh.. "+ computerselection+ " beats " + playerselection;
+        computerresult+=1;
     }
-    if(computerresult>playerresult)
-        console.log("Try again!! Computer won and You lost");
-    else
-        console.log("YAYYYY!! Computer Lost and You Won :)");
+    else {
+        current.textContent= "Wohooo "+ playerselection+ " beats " + computerselection;
+        playerresult+=1;
+    }
+    
+    playerpoints.textContent= "Your points: "+ playerresult;
+    comppoints.textContent= "Computer points: "+ computerresult;
+    }
+    gameresult(computerresult,playerresult);
 }
- 
-game()
 
-const buttons = document.querySelectorAll(".button");
-//const rock = document.querySelector('#rock');
+function gameresult(computer,player){
+    if(computer>player)
+        final.textContent="Try again!! Computer won and You lost";
+    else
+        final.textContent="YAYYYY!! Computer Lost and You Won :)";
+}
+
+for(let i=0;i<=6;i++){
+    game("rock")
+}
+/*const buttons = document.querySelectorAll(".button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log("rock");
-        game("rock");
+
      });
 });
-/*const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    let x= button.id;
-    game(x);
-  });
-});
 */
+
+
+
+
