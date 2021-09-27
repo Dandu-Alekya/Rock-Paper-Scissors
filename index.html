@@ -5,49 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="RPS.js" defer>
     </script>
 </head>
 <body>
-    <h1>ROCK-PAPER-SCISSORS-LIZARD-SPOCK</h1>
-    <div class="about">
-        <h2>About the game:</h2>
-        <p>The game is an expansion on the game Rock, Paper, Scissors.
-            Its a game that has been created in the show : "Big Bang Theory"</p>
+    <div class="header">
+        Logo
+        <ul>
+            <li><a href=".about">About</a></li>
+            <li><a href=".rules">Rules</a></li>
+        </ul>
     </div>
-    <div class="rules">
-        <h2>Rules:</h2>
-        <p>The rules are as follows:
-            <ul>
-            <li>Scissors cuts Paper</li>
-            <li>Paper covers Rock</li>
-            <li>Rock crushes Lizard</li>
-            <li>Lizard poisons Spock</li>
-            <li>Spock smashes Scissors</li>
-            <li>Scissors decapitates Lizard</li>
-            <li>Lizard eats Paper</li>
-            <li>Paper disproves Spock</li>
-            <li>Spock vaporizes Rock</li>
-            <li>Rock crushes Scissors</li>
-            </ul>
-            Got all that? 
-            </p>
-    </div>
+    <div class="name">
+        <h1>ROCK-PAPER-SCISSORS-LIZARD-SPOCK</h1>
+    </div> 
+    
     <div class="ready">
         <h2>If you are ready!! Lets play</h2>
         <button>START</button>
     </div>
-    <div class="player">
-        <h2>Select your option:</h2>
-        <button id='rock' class="button">ROCK</button>
-        <button id='paper' class="button">PAPER</button>
-        <button id='scissor' class="button">SCISSORS</button>
-        <button id='lizard' class="button">LIZARD</button>
-        <button id='spock' class="button">SPOCK</button>
-    </div>
-    <div class="result">
-        <p class="demo"></p>
+    <div class="game">
+        <div class="player">
+        <img src="">
+        <p>Points:</p>
+        </div>
+        <div class="computer">
+        <img src="">
+        <p>Points:</p>
+        </div>
     </div>
 
+    <div class="button">
+        <h2>Select your option:</h2>
+        <button id='rock'>ROCK</button>
+        <button id='paper'>PAPER</button>
+        <button id='scissor'>SCISSORS</button>
+        <button id='lizard'>LIZARD</button>
+        <button id='spock'>SPOCK</button>
+    </div>
+    <div class="result">
+        <p class="final"></p>
+        <button class="again">Play Again</button>
+    </div>
+    <div class="footer">
+        Made by Alekya dandu
+    </div>
 </body>
 </html>
