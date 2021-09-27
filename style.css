@@ -1,0 +1,45 @@
+body{
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header{
+    background-color:black;
+    display: flex;
+    justify-content: space-between;
+    color:whitesmoke;
+
+}
+.header ul{
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    list-style-type: none;
+    padding-right:10px;
+}
+.header a{
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:350px;
+    background: url(pexels-anni-roenkae-3109816.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+}
+
+.name h1{
+    padding:20px;
+    text-align: center;
+    color:whitesmoke;
+    background:black;
+    border: solid 2px whitesmoke;
+}
