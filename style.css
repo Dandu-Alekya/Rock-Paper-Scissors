@@ -117,8 +117,11 @@ body{
     text-align: center;
     padding: 20px;
 }
+#fullgame{
+    display: none;
+}
 
- button{
+button{
     color: black;
     background-color: whitesmoke;
     border: solid 2px black;
@@ -128,6 +131,10 @@ body{
     text-align: center;
     font-weight: bold;
 
+}
+
+button:hover{
+    background-color: #812d57c7;
 }
 
 .game{
@@ -158,12 +165,14 @@ body{
 }
 .result{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
     color: whitesmoke;
     gap:10px;
 }
+
 
 .result p{
     padding: 10px;
