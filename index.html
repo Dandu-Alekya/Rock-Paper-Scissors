@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="header">
-        Logo
+        <h2>AD_Games</h2>
         <ul>
             <li><a href=".about">About</a></li>
             <li><a href=".rules">Rules</a></li>
@@ -58,34 +58,35 @@
     
     <div class="ready">
         <h2>If you are ready!! Lets play</h2>
-        <button>START</button>
+        <button class="readybutton">START</button>
     </div>
-
+    <div class="fullgame">
     <div class="game">
         <div class="player">
         <img src="user.png">
-        <p id="playerpoint">Points:</p>
+        <p id="playerpoint"></p>
         </div>
         <div class="computer">
         <img src="monitor.png">
-        <p id="comppoint">Points:</p>
+        <p id="comppoint"></p>
         </div>
     </div>
 
     <div class="option">
-        <p id="current"></p>
+        <!--<p id="current"></p>-->
         <h2>Select your option:</h2>
-        <div class="button">
-            <button id='rock'>ROCK</button>
-            <button id='paper'>PAPER</button>
-            <button id='scissor'>SCISSORS</button>
-            <button id='lizard'>LIZARD</button>
-            <button id='spock'>SPOCK</button>
+        <div class="options_button">
+            <button id='Rock' class="button">ROCK</button>
+            <button id='Paper' class="button">PAPER</button>
+            <button id='Scissor' class="button">SCISSORS</button>
+            <button id='Lizard'class="button">LIZARD</button>
+            <button id='Spock' class="button">SPOCK</button>
         </div>
     </div>
     <div class="result">
-        <p id="final"></p>
-        <button class="again">Play Again</button>
+        <!--<p id="final"></p><br>
+        <button class="again">Play Again</button!-->
+    </div>
     </div>
     <div class="footer">
         Made by Alekya dandu
