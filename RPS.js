@@ -29,7 +29,7 @@ function game(playerselection,computerselection){
         current.textContent= "Uhoh.. You lost this round :( "+ computerselection+ " beats " + playerselection;
         computerresult+=1;
     }
-    else {
+    else if (result === "You Win"){
         current.textContent= "Wohooo!! You won this round :) "+ playerselection+ " beats " + computerselection;
         playerresult+=1;
     }
@@ -85,7 +85,13 @@ function gameresult(computer,player){
     else
         final.textContent="YAYYYY!! Computer Lost and You Won :)";
     finalresult.append(final);
+    //const playagain = document.createElement('button');
+    //finalresult.append(playagain);
+    //playagain.addEventListener('click',restartgame);
 }
+
+//function restartgame(){
+//}
 
 
 
