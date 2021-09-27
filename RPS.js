@@ -1,8 +1,43 @@
 let computerresult=0;
 let playerresult=0;
-let computerselection;
+let computerselection,playerselection;
 
-const final = document.querySelector('#final');
+const start = document.querySelector('.readybutton');
+const finalresult = document.querySelector('.result');
+const gamesection = document.querySelector('.option');
+const playerpoints = document.querySelector("#playerpoint");
+const comppoints = document.querySelector("#comppoint");
+const current = document.createElement("p");
+current.setAttribute('id','current')
+
+start.addEventListener('click',startfunction);
+function startfunction(){
+    document.getElementById("fullgame").style.display = "block";
+}
+const buttons = document.querySelectorAll('.button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    game(button.id,computerPlay());
+    if(computerresult===5 || playerresult===5)
+        gameresult(computerresult,playerresult);
+  });
+});
+
+function game(playerselection,computerselection){
+    const result=playround(computerselection, playerselection);
+    if(result === "You Lose"){
+        current.textContent= "Uhoh.. You lost this round :( "+ computerselection+ " beats " + playerselection;
+        computerresult+=1;
+    }
+    else {
+        current.textContent= "Wohooo!! You won this round :) "+ playerselection+ " beats " + computerselection;
+        playerresult+=1;
+    }
+    gamesection.append(current);
+    playerpoints.textContent= "Your points: "+ playerresult;
+    comppoints.textContent= "Computer points: "+ computerresult;
+}
+
 
 function computerPlay(){
     const result=["Rock", "Paper", "Scissors","Lizard","Spock"];
@@ -10,77 +45,48 @@ function computerPlay(){
 }
 
 function playround(computerselection,playerselection){
-    if(computerselection==="Rock" && playerselection==="scissors" || 
-        computerselection==="Paper" && playerselection==="rock" ||
-        computerselection==="Scissors" && playerselection==="paper"||
-        computerselection==="Rock" && playerselection==="lizard" ||
-        computerselection==="Lizard" && playerselection==="spock" ||
-        computerselection==="Spock" && playerselection==="scissors" ||
-        computerselection==="Scissors" && playerselection==="lizard" ||
-        computerselection==="Lizard" && playerselection==="paper" ||
-        computerselection==="Paper" && playerselection==="spock" ||
-        computerselection==="Spock" && playerselection==="rock" ||
-        computerselection==="Rock" && playerselection==="scissors"
+    if(computerselection==="Rock" && playerselection==="Scissors" || 
+        computerselection==="Paper" && playerselection==="Rock" ||
+        computerselection==="Scissors" && playerselection==="Paper"||
+        computerselection==="Rock" && playerselection==="Lizard" ||
+        computerselection==="Lizard" && playerselection==="Spock" ||
+        computerselection==="Spock" && playerselection==="Scissors" ||
+        computerselection==="Scissors" && playerselection==="Lizard" ||
+        computerselection==="Lizard" && playerselection==="Paper" ||
+        computerselection==="Paper" && playerselection==="Spock" ||
+        computerselection==="Spock" && playerselection==="Rock" ||
+        computerselection==="Rock" && playerselection==="Scissors"
     )
         return "You Lose"
     else if(
-        playerselection==="rock" && computerselection==="Scissors" || 
-        playerselection==="paper" && computerselection==="Rock" ||
-        playerselection==="scissors" && computerselection==="Paper"||
-        playerselection==="rock" && computerselection==="Lizard" ||
-        playerselection==="lizard" && computerselection==="Spock" ||
-        playerselection==="spock" && computerselection==="Scissors" ||
-        playerselection==="scissors" && computerselection==="Lizard" ||
-        playerselection==="lizard" && computerselection==="Paper" ||
-        playerselection==="paper" && computerselection==="Spock" ||
-        playerselection==="spock" && computerselection==="Rock" ||
-        playerselection==="rock" && computerselection==="Scissors"
+        playerselection==="Rock" && computerselection==="Scissors" || 
+        playerselection==="Paper" && computerselection==="Rock" ||
+        playerselection==="Scissors" && computerselection==="Paper"||
+        playerselection==="Rock" && computerselection==="Lizard" ||
+        playerselection==="Lizard" && computerselection==="Spock" ||
+        playerselection==="Spock" && computerselection==="Scissors" ||
+        playerselection==="Scissors" && computerselection==="Lizard" ||
+        playerselection==="Lizard" && computerselection==="Paper" ||
+        playerselection==="Paper" && computerselection==="Spock" ||
+        playerselection==="Spock" && computerselection==="Rock" ||
+        playerselection==="Rock" && computerselection==="Scissors"
     )
         return "You Win"
     else
-        return "Tie"
+        current.textContent="Its a Tie!! Try again";
         
 }
 
-const playerpoints = document.querySelector("#playerpoint");
-const comppoints = document.querySelector("#comppoint");
-const current = document.querySelector("#current");
-function game(playerselection){
-    while(computerresult<=5 && playerresult<=5){
-    computerselection=computerPlay();
-    const result=playround(computerselection, playerselection);
-    if(result === "You Lose"){
-        current.textContent= "Uhoh.. "+ computerselection+ " beats " + playerselection;
-        computerresult+=1;
-    }
-    else {
-        current.textContent= "Wohooo "+ playerselection+ " beats " + computerselection;
-        playerresult+=1;
-    }
-    
-    playerpoints.textContent= "Your points: "+ playerresult;
-    comppoints.textContent= "Computer points: "+ computerresult;
-    }
-    gameresult(computerresult,playerresult);
-}
-
 function gameresult(computer,player){
+    current.remove();
+    const final = document.createElement('p');  
     if(computer>player)
         final.textContent="Try again!! Computer won and You lost";
     else
         final.textContent="YAYYYY!! Computer Lost and You Won :)";
+    finalresult.append(final);
 }
 
-for(let i=0;i<=6;i++){
-    game("rock")
-}
-/*const buttons = document.querySelectorAll(".button");
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-
-     });
-});
-*/
 
 
 
