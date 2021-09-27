@@ -7,6 +7,7 @@ body{
 }
 
 .header{
+    height: 52px;
     background-color:black;
     display: flex;
     justify-content: space-between;
@@ -31,8 +32,8 @@ body{
     align-items: center;
     height:350px;
     background: url(pexels-anni-roenkae-3109816.jpg);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; 
+    background-repeat: no-repeat; 
     background-size: cover; 
 }
 
@@ -115,8 +116,51 @@ body{
     padding: 20px;
 }
 
-.ready button{
+ button{
     color: black;
     background-color: whitesmoke;
-    
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.footer{
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    background: black;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.game{
+    display: flex;
+    gap:100px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    color: #c74686;
+}
+.game img{
+    height: 200px;
+    width: 200px;
+    filter: invert(1);
+}
+
+.option{
+    display: flex;
+    background-color: #812d57;
+    flex-direction: column;
+    color: whitesmoke;
+    text-align: center;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
 }
