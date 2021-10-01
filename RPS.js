@@ -85,13 +85,21 @@ function gameresult(computer,player){
     else
         final.textContent="YAYYYY!! Computer Lost and You Won :)";
     finalresult.append(final);
-    //const playagain = document.createElement('button');
-    //finalresult.append(playagain);
-    //playagain.addEventListener('click',restartgame);
+    const playagain = document.createElement('button');
+    finalresult.append(playagain);
+    playagain.addEventListener('click',restartgame);
 }
 
-//function restartgame(){
-//}
+function restartgame(){
+    //alert("restart game");
+    comppoints.textContent=" ";
+    playerpoints.textContent=" ";
+    playerresult=0;
+    computerresult=0;
+    final.remove();
+    playagain.remove();
+    document.getElementById("fullgame").style.display = "none";
+}
 
 
 
