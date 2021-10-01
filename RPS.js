@@ -1,19 +1,25 @@
+//Declaring all the needed variables
 let computerresult=0;
 let playerresult=0;
 let computerselection,playerselection;
 
 const start = document.querySelector('.readybutton');
-const finalresult = document.querySelector('.result');
+let finalresult = document.querySelector('.result');
 const gamesection = document.querySelector('.option');
-const playerpoints = document.querySelector("#playerpoint");
-const comppoints = document.querySelector("#comppoint");
-const current = document.createElement("p");
+let playerpoints = document.querySelector("#playerpoint");
+let comppoints = document.querySelector("#comppoint");
+let final = document.createElement('p');
+let playagain = document.createElement('button');
+let current = document.createElement("p");
 current.setAttribute('id','current')
 
+//When start button is clicked the full game section is visible
 start.addEventListener('click',startfunction);
 function startfunction(){
     document.getElementById("fullgame").style.display = "block";
 }
+
+//Listening to User Options selection
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -23,6 +29,7 @@ buttons.forEach((button) => {
   });
 });
 
+//Point calculation and display
 function game(playerselection,computerselection){
     const result=playround(computerselection, playerselection);
     if(result === "You Lose"){
@@ -39,11 +46,14 @@ function game(playerselection,computerselection){
 }
 
 
+//Returns a random result from the array
 function computerPlay(){
     const result=["Rock", "Paper", "Scissors","Lizard","Spock"];
     return result[Math.floor(Math.random()*result.length)];
 }
 
+
+//Returns the outcome based on user and computer selection
 function playround(computerselection,playerselection){
     if(computerselection==="Rock" && playerselection==="Scissors" || 
         computerselection==="Paper" && playerselection==="Rock" ||
@@ -77,19 +87,23 @@ function playround(computerselection,playerselection){
         
 }
 
+//Displays Final Game result
 function gameresult(computer,player){
     current.remove();
-    const final = document.createElement('p');  
-    if(computer>player)
-        final.textContent="Try again!! Computer won and You lost";
-    else
+    if(computer>player){
+        final.textContent="Try again!! Computer won and You lost";    
+        playagain.textContent="Try Again"  
+    }
+    else{
         final.textContent="YAYYYY!! Computer Lost and You Won :)";
+        playagain.textContent="Play Again"  
+    }
     finalresult.append(final);
-    const playagain = document.createElement('button');
     finalresult.append(playagain);
     playagain.addEventListener('click',restartgame);
 }
 
+//Resarts the Game
 function restartgame(){
     //alert("restart game");
     comppoints.textContent=" ";
@@ -100,8 +114,4 @@ function restartgame(){
     playagain.remove();
     document.getElementById("fullgame").style.display = "none";
 }
-
-
-
-
 
