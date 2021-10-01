@@ -8,8 +8,7 @@ let finalresult = document.querySelector('.result');
 const gamesection = document.querySelector('.option');
 let playerpoints = document.querySelector("#playerpoint");
 let comppoints = document.querySelector("#comppoint");
-let final = document.createElement('p');
-let playagain = document.createElement('button');
+
 let current = document.createElement("p");
 current.setAttribute('id','current')
 
@@ -86,6 +85,9 @@ function playround(computerselection,playerselection){
         current.textContent="Its a Tie!! Try again";
         
 }
+
+let final = document.createElement('p');
+let playagain = document.createElement('button');
 
 //Displays Final Game result
 function gameresult(computer,player){
